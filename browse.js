@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const { download, dealqueue } = require('./save')
 
 module.exports = async (keyword, distFolder) => {
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({args: ['--no-sandbox']})
   const page = await browser.newPage();
   await page.goto(getUrl(keyword));
   while (true) {

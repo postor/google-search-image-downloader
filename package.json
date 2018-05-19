@@ -1,6 +1,6 @@
 {
   "name": "google-search-image-downloader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "input keyword, then start download, using puppeteer",
   "main": "index.js",
   "bin": {
