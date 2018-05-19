@@ -1,0 +1,33 @@
+{
+  "name": "google-search-image-downloader",
+  "version": "1.0.0",
+  "description": "input keyword, then start download, using puppeteer",
+  "main": "index.js",
+  "bin": {
+    "google-search-image-downloader": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/google-search-image-downloader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/google-search-image-downloader/issues"
+  },
+  "homepage": "https://github.com/postor/google-search-image-downloader#readme",
+  "dependencies": {
+    "args": "^4.0.0",
+    "base64-img": "^1.0.4",
+    "file-extension": "^4.0.2",
+    "fs-extra": "^6.0.1",
+    "is-data-uri": "^0.1.0",
+    "md5": "^2.2.1",
+    "puppeteer": "^1.4.0"
+  }
+}
