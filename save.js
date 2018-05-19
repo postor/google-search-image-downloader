@@ -3,7 +3,6 @@ const isDataUri = require('is-data-uri');
 const md5 = require('md5');
 const base64Img = require('base64-img');
 const { exists, ensureDir, move, remove, writeFile } = require('fs-extra')
-const downloadImg = require('image-downloader')
 const fileExtension = require('file-extension');
 
 module.exports.dealqueue = dealqueue
@@ -28,23 +27,6 @@ function save(url, distFolder, fileName) {
       resolve(true)
     });
   })
-}
-
-async function download(url, distFolder, fileName) {
-  try {
-    const tmpFolder = join(distFolder, fileName)
-    await ensureDir(tmpFolder)
-    const { filename } = await downloadImg.image({
-      url,
-      dest: tmpFolder,
-    })
-
-    const ext = fileExtension(filename)
-    await move(filename, join(distFolder, `${fileName}.${ext}`))
-    await remove(tmpFolder)
-  } catch (e) {
-    console.log({ e, url })
-  }
 }
 
 let queue = []
