@@ -2,20 +2,22 @@ const { join } = require('path')
 const isDataUri = require('is-data-uri');
 const md5 = require('md5');
 const base64Img = require('base64-img');
-const { exists, ensureDir, move, remove, writeFile } = require('fs-extra')
-const fileExtension = require('file-extension');
+const { writeFile } = require('fs-extra')
 
 module.exports.dealqueue = dealqueue
 
 module.exports.download = async (url, distFolder) => {
   if (!url) {
-    console.log(`empty url`, { url, })
+    console.log(`invalid url`, { url, })
     return
   }
   const fileName = md5(url)
 
   if (!isDataUri(url)) {
     await download2(url, distFolder, fileName)
+  } else if(!url.startsWith('http')){
+    console.log(`invalid url`, { url, })
+    return 
   } else {
     await save(url, distFolder, fileName)
   }
