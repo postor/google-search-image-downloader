@@ -53,5 +53,5 @@ async function dealqueue(browser) {
       console.log({ e, url })
     }
   }
-  page.close()
+  await page.close()
 }
