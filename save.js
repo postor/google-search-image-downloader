@@ -13,13 +13,13 @@ module.exports.download = async (url, distFolder) => {
   }
   const fileName = md5(url)
 
-  if (url.startsWith('data:')) {
+  if (url.startsWith('http')) {
     await download2(url, distFolder, fileName)
-  } else if(!url.startsWith('http')){
-    console.log(`invalid url`, { url, })
-    return 
-  } else {
+  } else if (url.startsWith('data:')) {
     await save(url, distFolder, fileName)
+  } else {
+    console.log(`invalid url`, { url, })
+    return
   }
 }
 
