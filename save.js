@@ -8,6 +8,10 @@ const fileExtension = require('file-extension');
 module.exports.dealqueue = dealqueue
 
 module.exports.download = async (url, distFolder) => {
+  if (!url) {
+    console.log(`empty url`, { url, })
+    return
+  }
   const fileName = md5(url)
 
   if (!isDataUri(url)) {
