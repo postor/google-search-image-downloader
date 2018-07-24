@@ -13,7 +13,7 @@ module.exports.download = async (url, distFolder) => {
   }
   const fileName = md5(url)
 
-  if (!isDataUri(url)) {
+  if (url.startsWith('data:')) {
     await download2(url, distFolder, fileName)
   } else if(!url.startsWith('http')){
     console.log(`invalid url`, { url, })
